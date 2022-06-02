@@ -29,7 +29,6 @@ use this conf file
 server {
 listen 80;
 server_name fourtimes.ml;
-return 301 https://$host$request_uri;
 location / {
 proxy_pass http://google.com;
 }
