@@ -9,7 +9,7 @@ This article will provide you a complete detailed knowledge of configuring Jenki
 
 | SERVER | OPERATING SYSTEM | |
 | --- | --- | --- |
-| VM | ubuntu |
+| virtual machine | ubuntu |
 
 **Note**
 
