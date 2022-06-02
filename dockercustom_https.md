@@ -30,6 +30,7 @@ RUN ln -sf /dev/stdout /var/log/apache2/dodo-found.access.log \
 
 #Apache config
 COPY dodo-found.conf /etc/apache2/sites-available/dodofound.conf
+RUN a2dissite 000-default.conf
 RUN rm -rf /etc/apache2/sites-available/000-default.conf
 RUN a2ensite dodofound.conf 
 
@@ -135,7 +136,8 @@ RUN ln -sf /dev/stdout /var/log/apache2/dodo-found.access.log \
 
 #Apache config
 COPY dodo_found.conf /etc/apache2/sites-available/dodofound.conf
-RUN rm -f /etc/apache2/sites-available/000-default.conf
+RUN a2dissite 000-default.conf
+RUN rm -rf /etc/apache2/sites-available/000-default.conf
 RUN a2ensite dodofound.conf 
 
 CMD ["apachectl","-D","FOREGROUND"]
