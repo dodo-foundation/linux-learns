@@ -1,5 +1,11 @@
-###kubernet clutser creation
+### kubernetes clutser creation
 
+
+|SERVERNAME|IPADDRESS|OPERATING SYSTEM|
+|---|---|---|
+|master1|3.213.28.57|ubuntu|
+|master-2|3.0.180.226|ubuntu|
+|HA PROXY|13.250.99.10|ubunt
 
 ```bash
 sudo apt-get update && sudo apt-get install -y \
@@ -47,4 +53,12 @@ deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
+```
+
+_/etc/hosts Entry_
+
+```bash
+echo "172.31.29.37 ha-proxy" | sudo tee -a /etc/hosts
+echo "172.31.17.246 master1" | sudo tee -a /etc/hosts
+echo "172.31.28.88 master2" | sudo tee -a /etc/hosts
 ```
