@@ -13,7 +13,7 @@ _ftp user creation_
 
 useradd -m -s /bin/false user-a
 sudo passwd user-a
-suseradd -m -s /bin/false user-b
+useradd -m -s /bin/false user-b
 sudo passwd user-b
 ```
 
