@@ -79,11 +79,11 @@ sudo mkdir -p /etc/vsftpd/users
 
 sudo mkdir -p /var/www/api.fourtimes.ml
 sudo chown -R user-a:user-a /var/www/api.fourtimes.ml
-sudo "local_root=/var/www/api.fourtimes.ml" | tee  /etc/vsftpd/users/user-a
+echo "local_root=/var/www/api.fourtimes.ml" | sudo tee  /etc/vsftpd/users/user-a
 
 sudo mkdir -p /var/www/ai.fourtimes.ml
 sudo chown -R user-b:user-b /var/www/ai.fourtimes.ml
-sudo "local_root=/var/www/ai.fourtimes.ml" | tee /etc/vsftpd/users/user-b
+echo "local_root=/var/www/ai.fourtimes.ml" | sudo tee /etc/vsftpd/users/user-b
 ```
 
 _restrict the users at root level_
@@ -98,7 +98,7 @@ _restart the service_
 
 ```bash
 
-systemctl start vsftpd
+systemctl restart vsftpd
 systemctl status vsftpd
 
 ```
