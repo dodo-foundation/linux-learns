@@ -1,4 +1,4 @@
-## _keepalived configuration_
+## keepalived configuration
 
 Keepalived is a piece of software which can be used to achieve high availability by assigning two or more nodes a virtual IP and monitoring those nodes, failing over when one goes down. Keepalived can do more, like load balancing and monitoring, but this tutorial focusses on a very simple setup, just IP failove
 
@@ -19,46 +19,36 @@ Keepalived is a piece of software which can be used to achieve high availability
 **_Installation process_**
 
 
- **_Check whether we installed the service in the system before installing the packages_**
+ Check whether we installed the service in the system before installing the packages.
 
-~~~bash
+```bash
 
 dpkg --list | grep keepalived
 
-~~~
+```
+_**Install keepalived service**_
 
----
-
-### Install keepalived service
-
-~~~bash
+```bash
 
 sudo apt-get update
 sudo apt-get install keepalived -y
 
-~~~
+```
 
-
-
-**_Configure KeepAlived_**
-
+_**Configure KeepAlived**_
 
 Once KeepAlived package is installed, create the main configuration file `/etc/keepalived/keepalived.conf` with below configuration. Replace the Highlighted values as per your configurations.
 
-~~~bash
-
+```bash
 vim /etc/keepalived/keepalived.conf
+```
 
-~~~
+_**Set up the ha-proxy-a as a master keepalived.**_
 
+Check that your interface name, According to the configuration. In this case, I'm using 'wlp1s0' as an interface.
 
-
-Configuration file for MASTER file for haprocxy-a
-
-~~~bash
-
+```bash
 # configuation for the virtual interface
-
 vrrp_instance VI_1 {
     state MASTER
     interface wlp1s0
@@ -73,30 +63,20 @@ vrrp_instance VI_1 {
         192.168.0.110
     }
 }
+```
+_**Restart the service**_
 
-~~~
+```bash
+sudo systemctl restart keepalived
+sudo systemctl start keepalived
+sudo systemctl status keepalived
+```
 
+_**Set up the ha-proxy-b as a backup keepalived.**_
 
+The package installation process should follow what you did on the `ha-proxy-a` server
 
-**Use systemctl command to start and enable the KeepAlived service as below.**
-~~~bash
-
- systemctl restart keepalived
- systemctl enable keepalived
- 
-~~~
-
-
-----
-
-
-Configuration file for backup file for haproxy-b
-
-
-~~~bash
-
-# configuation for the virtual interface
-
+```bash
 vrrp_instance VI_1 {
     state BACKUP
     interface wlp1s0
@@ -111,16 +91,12 @@ vrrp_instance VI_1 {
         192.168.0.110
     }
 }
+```
 
+_**Start keepalived service**_
 
-~~~
-
-**Start keepalived service**
-~~~bash
-
-# sudo systemctl status keepalived
-sudo systemctl reload keepalived
+```bash
+sudo systemctl restart keepalived
 sudo systemctl start keepalived
-
-~~~
-
+sudo systemctl status keepalived
+```
