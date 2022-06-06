@@ -10,12 +10,16 @@ Keepalived is a piece of software which can be used to achieve high availability
 
 |IP|OS|HOSTNAME|
 |---|---|---|
-|172.31.30.178/20|Ubuntu|ha-proxy-a|
-|172.31.31.158|Ubuntu|ha-proxy-b|
-|172.31.31.300|Ubuntu|virtual-ip|
+|192.168.0.101|Ubuntu|ha-proxy-a|
+|192.168.0.102|Ubuntu|ha-proxy-b|
+|172.31.31.110|Ubuntu|virtual-ip|
 
 
-## Check whether we installed the service in the system before installing the packages
+
+**_Installation process_**
+
+
+ **_Check whether we installed the service in the system before installing the packages_**
 
 ~~~bash
 
@@ -23,9 +27,9 @@ dpkg --list | grep keepalived
 
 ~~~
 
-**_Installation process_**
-
 ---
+
+### Install keepalived service
 
 ~~~bash
 
@@ -36,7 +40,7 @@ sudo apt-get install keepalived -y
 
 **_Configure KeepAlived_**
 
-Once KeepAlived package is installed, create the main configuration file /etc/keepalived/keepalived.conf with below configuration. Replace the Highlighted values as per your configurations.
+Once KeepAlived package is installed, create the main configuration file `/etc/keepalived/keepalived.conf` with below configuration. Replace the Highlighted values as per your configurations.
 
 ~~~bash
 
@@ -44,7 +48,7 @@ vim /etc/keepalived/keepalived.conf
 
 ~~~
 
-Configuration file for MASTER file
+Configuration file for MASTER file for haprocxy-a
 
 ~~~bash
 
@@ -79,7 +83,7 @@ vrrp_instance VI_1 {
 ----
 
 
-Configuration file for backup file
+Configuration file for backup file for haproxy-b
 
 
 ~~~bash
@@ -108,7 +112,8 @@ vrrp_instance VI_1 {
 ~~~bash
 
 # sudo systemctl status keepalived
-sudo service keepalived start
+sudo systemctl reload keepalived
+sudo systemctl start keepalived
 
 ~~~
 
