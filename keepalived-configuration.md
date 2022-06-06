@@ -2,6 +2,10 @@
 
 * Keepalived is a piece of software which can be used to achieve high availability by assigning two or more nodes a virtual IP and monitoring those nodes, failing over when one goes down. Keepalived can do more, like load balancing and monitoring, but this tutorial focusses on a very simple setup, just IP failove
 
+
+![image](https://user-images.githubusercontent.com/88568938/172118702-5e477616-08f8-4711-b8c9-04ae6ccbcac2.png)
+
+
 **_requirments_**
 
 
@@ -13,8 +17,7 @@
 ~~~bash
 
 sudo apt-get update
-sudo apt-get install linux-headers-$(uname -r)
-sudo apt-get install keepalived
+sudo apt-get install keepalived -y
 
 ~~~
 
@@ -23,7 +26,9 @@ sudo apt-get install keepalived
 Now create or edit Keepalived configuration `/etc/keepalived/keepalived.conf` file on LB1
 
 ~~~bash
+
 vim /etc/keepalived/keepalived.conf
+
 ~~~
 
 Configuration File for MASTER FILE
