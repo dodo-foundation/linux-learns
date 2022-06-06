@@ -5,7 +5,7 @@ _**xampp installation**_
 ```bash
 
 sudo apt update
-sudo apt install wget
+sudo apt install wget -y
 wget https://www.apachefriends.org/xampp-files/7.4.29/xampp-linux-x64-7.4.29-1-installer.run
 
 ```
