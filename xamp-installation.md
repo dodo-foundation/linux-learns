@@ -34,13 +34,10 @@ sudo /opt/lampp/lampp start
 
 ```
 
-_**access** _
+_**access**_
 
 
 ```bash
-
 http://localhost/
 http://localhost/phpmyadmin
-
-
 ```
