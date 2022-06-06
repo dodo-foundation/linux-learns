@@ -10,7 +10,7 @@ wget https://www.apachefriends.org/xampp-files/7.4.29/xampp-linux-x64-7.4.29-1-i
 
 ```
 
-permission
+_**permission**_
 
 ```bash
 
@@ -18,13 +18,15 @@ sudo chmod 755 xampp-linux-x64-7.4.29-1-installer.run
 
 ```
 
+_**installtion**_
+
 ```bash
 
 sudo ./xampp-linux-x64-7.4.29-1-installer.run
 
 ```
 
-service managemant
+_**service managemant**_
 
 ```
 sudo /opt/lampp/lampp start
