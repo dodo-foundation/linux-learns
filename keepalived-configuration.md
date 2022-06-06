@@ -8,7 +8,18 @@
 
 **_requirments_**
 
+|Ip|OS|hostname|
+|---|---|---|
+|18.142.53.129|Ubuntu|ha-proxy-a|
+|54.169.153.201|Ubuntu|ha-proxy-b|
+|192.168.0.150|Ubuntu|virtual _ip|
 
+
+* Before installing keepalived, check its service and then install it
+
+~~~bash
+sudo systemctl status keepalived 
+~~~
 
 **_Installation process_**
 
