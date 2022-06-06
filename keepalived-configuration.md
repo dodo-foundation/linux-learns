@@ -2,9 +2,7 @@
 
 Keepalived is a piece of software which can be used to achieve high availability by assigning two or more nodes a virtual IP and monitoring those nodes, failing over when one goes down. Keepalived can do more, like load balancing and monitoring, but this tutorial focusses on a very simple setup, just IP failove
 
-
 ![image](https://assets.digitalocean.com/articles/high_availability/ha-diagram-animated.gif)
-
 
 **_requirments_**
 
@@ -12,12 +10,9 @@ Keepalived is a piece of software which can be used to achieve high availability
 |---|---|---|
 |192.168.0.101|Ubuntu|ha-proxy-a|
 |192.168.0.102|Ubuntu|ha-proxy-b|
-|172.31.31.110|Ubuntu|virtual-ip|
-
-
+|192.168.0.100|Ubuntu|virtual-ip|
 
 **_Installation process_**
-
 
  Check whether we installed the service in the system before installing the packages.
 
