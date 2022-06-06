@@ -34,7 +34,6 @@ sudo apt-get update
 sudo apt-get install keepalived -y
 
 ```
-
 _**Configure KeepAlived**_
 
 Once KeepAlived package is installed, create the main configuration file `/etc/keepalived/keepalived.conf` with below configuration. Replace the Highlighted values as per your configurations.
@@ -71,10 +70,35 @@ sudo systemctl restart keepalived
 sudo systemctl start keepalived
 sudo systemctl status keepalived
 ```
+**_Installation process_**
+
+
+ Check whether we installed the service in the system before installing the packages.
+
+```bash
+
+dpkg --list | grep keepalived
+
+```
+_**Install keepalived service**_
+
+```bash
+
+sudo apt-get update
+sudo apt-get install keepalived -y
+
+```
+_**Configure KeepAlived**_
+
+Once KeepAlived package is installed, create the main configuration file `/etc/keepalived/keepalived.conf` with below configuration. Replace the Highlighted values as per your configurations.
+
+```bash
+vim /etc/keepalived/keepalived.conf
+```
 
 _**Set up the ha-proxy-b as a backup keepalived.**_
 
-The package installation process should follow what you did on the `ha-proxy-a` server
+Check that your interface name, According to the configuration. In this case, I'm using 'wlp1s0' as an interface.
 
 ```bash
 vrrp_instance VI_1 {
