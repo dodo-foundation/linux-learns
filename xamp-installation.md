@@ -28,12 +28,13 @@ sudo ./xampp-linux-x64-7.4.29-1-installer.run
 
 _**service managemant**_
 
-```
+```bash
+
 sudo /opt/lampp/lampp start
 
 ```
 
-access 
+_**access** _
 
 
 ```bash
