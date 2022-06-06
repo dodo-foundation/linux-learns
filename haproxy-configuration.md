@@ -9,6 +9,10 @@ haproxy configuration using the purpose for load balancing and high availability
 |haproxy-a| 192.168.0.2| ubuntu |
 |haproxy-b| 192.168.0.3| ubuntu |
 
+![image](https://assets.digitalocean.com/articles/high_availability/ha-diagram-animated.gif)
+
+
+
 
 **server installtion**
 
