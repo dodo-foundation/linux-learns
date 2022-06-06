@@ -3,7 +3,7 @@
 * Keepalived is a piece of software which can be used to achieve high availability by assigning two or more nodes a virtual IP and monitoring those nodes, failing over when one goes down. Keepalived can do more, like load balancing and monitoring, but this tutorial focusses on a very simple setup, just IP failove
 
 
-![image](https://user-images.githubusercontent.com/88568938/172118702-5e477616-08f8-4711-b8c9-04ae6ccbcac2.png)
+![image](https://assets.digitalocean.com/articles/high_availability/ha-diagram-animated.gif)
 
 
 **_requirments_**
