@@ -10,7 +10,16 @@ Keepalived is a piece of software which can be used to achieve high availability
 |---|---|---|
 |192.168.0.101|Ubuntu|ha-proxy-a|
 |192.168.0.102|Ubuntu|ha-proxy-b|
-|192.168.0.100|Ubuntu|virtual-ip|
+|192.168.0.110|Ubuntu|virtual-ip|
+
+_**Pre-steps**_
+
+connect the `each machine` and execute the host entry
+
+```bash
+echo "192.168.0.101 ha-proxy-a" | sudo tee -a /etc/hosts
+echo "192.168.0.102 ha-proxy-b" | sudo tee -a /etc/hosts
+```
 
 **_Installation process_**
 
