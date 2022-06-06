@@ -34,9 +34,9 @@ sudo apt-get install keepalived -y
 
 ~~~
 
-**_Configuration_**
+**_Configure KeepAlived_**
 
-Now create or edit Keepalived configuration `/etc/keepalived/keepalived.conf` file on LB1
+Once KeepAlived package is installed, create the main configuration file /etc/keepalived/keepalived.conf with below configuration. Replace the Highlighted values as per your configurations.
 
 ~~~bash
 
@@ -44,11 +44,11 @@ vim /etc/keepalived/keepalived.conf
 
 ~~~
 
-Configuration File for MASTER FILE
+Configuration file for MASTER file
 
 ~~~bash
 
-
+# configuation for the virtual interface
 
 vrrp_instance VI_1 {
     state MASTER
@@ -79,11 +79,12 @@ vrrp_instance VI_1 {
 ----
 
 
-Configuration File for backup file
+Configuration file for backup file
 
 
 ~~~bash
 
+# configuation for the virtual interface
 
 vrrp_instance VI_1 {
     state BACKUP
