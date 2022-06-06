@@ -4,11 +4,11 @@ haproxy configuration using the purpose for load balancing and high availability
 
 **Examination of requiremnets**
 
-|SERVER| IPADDRESS|PURPOSE|
+|SERVER| IPADDRESS|OS|
 |---|---|---|
-|haproxy| 192.168.0.2| proxy server |
-|server| 192.168.0.3| web server 1|
-|server| 192.168.0.4| web server 2 |
+|haproxy-a| 192.168.0.2| ubuntu |
+|haproxy-b| 192.168.0.3| ubuntu |
+
 
 **server installtion**
 
