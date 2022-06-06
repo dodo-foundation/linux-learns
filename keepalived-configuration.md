@@ -38,7 +38,10 @@ sudo apt-get install keepalived -y
 
 ~~~
 
+
+
 **_Configure KeepAlived_**
+
 
 Once KeepAlived package is installed, create the main configuration file `/etc/keepalived/keepalived.conf` with below configuration. Replace the Highlighted values as per your configurations.
 
@@ -47,6 +50,8 @@ Once KeepAlived package is installed, create the main configuration file `/etc/k
 vim /etc/keepalived/keepalived.conf
 
 ~~~
+
+
 
 Configuration file for MASTER file for haprocxy-a
 
@@ -70,6 +75,8 @@ vrrp_instance VI_1 {
 }
 
 ~~~
+
+
 
 **Use systemctl command to start and enable the KeepAlived service as below.**
 ~~~bash
