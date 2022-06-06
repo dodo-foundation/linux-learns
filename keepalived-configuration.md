@@ -19,7 +19,7 @@ Keepalived is a piece of software which can be used to achieve high availability
 
 ~~~bash
 
-dpkg --list | grep nginx
+dpkg --list | grep keepalived
 
 ~~~
 
@@ -61,7 +61,7 @@ vrrp_instance VI_1 {
         auth_pass 1111
     }
     virtual_ipaddress {
-        192.168.10.105/32
+        192.168.0.110
     }
 }
 
@@ -97,9 +97,10 @@ vrrp_instance VI_1 {
         auth_pass 1111
     }
     virtual_ipaddress {
-        192.168.10.105/32
+        192.168.0.110
     }
 }
+
 
 ~~~
 
