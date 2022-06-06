@@ -10,15 +10,17 @@ Keepalived is a piece of software which can be used to achieve high availability
 
 |IP|OS|HOSTNAME|
 |---|---|---|
-|18.142.53.129|Ubuntu|ha-proxy-a|
-|54.169.153.201|Ubuntu|ha-proxy-b|
-|192.168.0.150|Ubuntu|virtual-ip|
+|172.31.30.178/20|Ubuntu|ha-proxy-a|
+|172.31.31.158|Ubuntu|ha-proxy-b|
+|172.31.31.300|Ubuntu|virtual-ip|
 
 
-* Before installing keepalived, check its service and then install it
+## Check whether we installed the service in the system before installing the packages
 
 ~~~bash
-sudo systemctl status keepalived 
+
+dpkg --list | grep nginx
+
 ~~~
 
 **_Installation process_**
@@ -65,8 +67,17 @@ vrrp_instance VI_1 {
 
 ~~~
 
+**Use systemctl command to start and enable the KeepAlived service as below.**
+~~~bash
 
----
+ systemctl restart keepalived
+ systemctl enable keepalived
+ 
+~~~
+
+
+----
+
 
 Configuration File for backup file
 
@@ -75,10 +86,10 @@ Configuration File for backup file
 
 
 vrrp_instance VI_1 {
-    state backup
+    state BACKUP
     interface wlp1s0
     virtual_router_id 101
-    priority 101
+    priority 100
     advert_int 1
     authentication {
         auth_type PASS
