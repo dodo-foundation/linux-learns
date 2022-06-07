@@ -15,6 +15,15 @@ _**process flow**_
 |Server -2| 192.168.0.109| ubuntu |
 |Nginx container| 8081:80 | ubuntu |
 
+_**Pre-steps**_
+
+connect the `each machine` and execute the host entry
+
+```bash
+echo "192.168.0.105 Server1" | sudo tee -a /etc/hosts
+echo "192.168.0.102 Server2" | sudo tee -a /etc/hosts
+echo "loalhos:8081  Virtual ip" | sudo tee -a /etc/hosts
+```
 
 **Nginx Container Creation**
 
@@ -24,7 +33,15 @@ https://github.com/dodo-foundation/linux-learns/blob/5d7e943997f90e54b06caef8a45
 
 ---
 
-**server installtion**
+**Keepalived Creation**
+
+We can try keepalived with ha-proxy method in this task, so you must install config in 'keepalived'. If Keepalived is already installed, skip this step. Otherwise, check out this link to install and configure Keepalived.
+
+https://github.com/dodo-foundation/linux-learns/blob/b487d9a173e228b012b477328d9a93559a2d6357/keepalived-configuration.md
+
+---
+
+**HA_proxy installtion**
 
 ```bash
 
