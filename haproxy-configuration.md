@@ -13,8 +13,7 @@ _**process flow**_
 |---|---|---|
 |Server-1| 192.168.0.105| ubuntu |
 |Server -2| 192.168.0.109| ubuntu |
-|Nginx container| 8081:80 | ubuntu |
-|Floating Ip| 192.168.0.110| virutal Ip|
+|Floating Ip| 192.168.0.110| ubuntu|
 
 _**Pre-steps**_
 
