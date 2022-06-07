@@ -5,7 +5,7 @@
 
 
 ```bash
-upstream backend{upstream backend{
+upstream backend{
         server localhost:8081;
         server localhost:8082;
 }
