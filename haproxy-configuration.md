@@ -14,6 +14,7 @@ _**process flow**_
 |Server-1| 192.168.0.105| ubuntu |
 |Server -2| 192.168.0.109| ubuntu |
 |Nginx container| 8081:80 | ubuntu |
+|Floating Ip| 192.168.0.110| virutal Ip|
 
 _**Pre-steps**_
 
@@ -202,5 +203,7 @@ curl 192.168.0.110:6443
 #Its works Container1
 #Its works Container2
 ```
-Content from two different servers will appear alternately.
+
+* In this case we check floating ip using with keepalived Conf
+* Output Content from two different servers will appear alternately.
 
