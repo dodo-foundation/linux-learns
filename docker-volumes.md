@@ -27,6 +27,10 @@ docker volume inspect (volume name)
  docker volume rm (volume name)
 ```
 
+_**Default Destination Path**_
+
+ * mysql 
+ * nginx --> /usr/share/nginx/html
 # Start a container with a volume:-
 **Syntax for --mount:**
 ---
