@@ -60,7 +60,7 @@ sudo vim nginx/index.html
 _To create an dodo-found config file in your nginx directory_
 
 ```bash
-vim nginx/dodo-found.conf
+vim nginx/dodo-found.tk.conf
 ```
 
 ```bash
