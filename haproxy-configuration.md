@@ -61,7 +61,7 @@ haproxy -v
 
 **Configuraton**
 
-Configuring Load balancer on Layer 1, In this secton conf file located in `/etc/haproxy/haproxy.cfg`
+Configuring Load balancer on `Server 1`, In this secton conf file located in `/etc/haproxy/haproxy.cfg`
 
 
 ```bash
@@ -132,7 +132,7 @@ curl -i 192.168.0.110:6443
 to shown your `index.html` file is automatically changed
 
 
-_**Configuring Load balancer on Virtual Machine 2**_
+_**Configuring HA Proxy on Server2**_
 
 
 ```bash
