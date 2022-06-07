@@ -11,13 +11,13 @@
 
 **_configuration_**
 
-In this section 2 apache container running as a server
+In this section 2 Nginx container running as a server
   * Nginx1
   * Nginx2
 
 _create Nginx DockerFile_   
 
-**Note:** To create an Apache container, go to this post.
+**Note:** To create an Nginx container, go to this post.
 
 
 https://github.com/dodo-foundation/linux-learns/blob/main/dockercustom_https.md
@@ -27,8 +27,8 @@ Once you've created the Apache2 image, execute it to create two containers with 
 
 ```bash
 
-docker run -d -p 8081:80 --name Apache1 imageid
-docker run -d -p 8082:80 --name Apache2 imageid
+docker run -d -p 8081:80 --name Nginx1 imageid
+docker run -d -p 8082:80 --name Nginx2 imageid
 
 ```
 
