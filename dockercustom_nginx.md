@@ -14,7 +14,7 @@ We build a custom image for nginx without SSL configuration in this section.
 
 ```bash
 sudo mkdir -p nginx 
-sudo vim /nginxDockerfile
+sudo vim /nginx/Dockerfile
 ```
 Basic configuration is presented below; if you wish to adjust any custom levels, do so according to your needs.
 
@@ -64,13 +64,17 @@ vim nginx/dodo-found.conf
 ```
 
 ```bash
+server {
+    listen       80;
     server_name  dodo-found.tk;
+    
 
     location / {
         root   /var/www/html/dodo-found.tk/;
         index  index.html index.htm;
     }
 }
+
 ```
 ---
 
