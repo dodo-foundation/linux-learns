@@ -66,7 +66,7 @@ server {
     access_log           /var/log/nginx/fourtimes.ml.access.log;
     error_log            /var/log/nginx/fourtimes.ml.error.log;
     
-    sudo ln -s /etc/nginx/sites-available/kendanicrio.conf /etc/nginx/sites-enabled/
+    
     location / {
         root   /var/www/fourtimes.ml;
         index  index.html index.htm;
