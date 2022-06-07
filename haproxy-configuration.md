@@ -15,12 +15,14 @@ _**process flow**_
 |Server -2| 192.168.0.109| ubuntu |
 |Nginx container| 8081:80 | ubuntu |
 
+
 **Nginx Container Creation**
 
 In this case, the Nginx container serves as the server running on the '8081 port' and the link below is used to create the nginx container.
 
 https://github.com/dodo-foundation/linux-learns/blob/5d7e943997f90e54b06caef8a450f56fd5461b8d/dockercustom_nginx.md
 
+---
 
 **server installtion**
 
@@ -173,11 +175,15 @@ haproxy -c -V -f /etc/haproxy/haproxy.cfg
 
 ```
 
-After running the command, the message 'Configuration file is valid' appears. 
+After running the command, the message appears 'Configuration file is valid'. 
 
 ```bash 
-curl -i localhost:6443
-curl -i 192.168.0.110:6443
-```
+curl localhost:6443
+curl 192.168.0.110:6443
 
-to shown your `index.html` file is automatically changed
+#output
+#Its works Container1
+#Its works Container2
+```
+Content from two different servers will appear alternately.
+
