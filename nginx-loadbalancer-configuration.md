@@ -23,7 +23,7 @@ _create Nginx DockerFile_
 https://github.com/dodo-foundation/linux-learns/blob/main/dockercustom_nginx.md
 
 
-Once you've created the Apache2 image, execute it to create two containers with different ports, as seen below.
+Once you've created the Nginx image, execute it to create two containers with different ports, as seen below.
 
 ```bash
 
