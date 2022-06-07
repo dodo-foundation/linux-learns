@@ -8,8 +8,8 @@ Keepalived is a piece of software which can be used to achieve high availability
 
 |IP|OS|HOSTNAME|
 |---|---|---|
-|192.168.0.105|Ubuntu|ha-proxy-a|
-|192.168.0.109|Ubuntu|ha-proxy-b|
+|192.168.0.105|Ubuntu|Server1|
+|192.168.0.109|Ubuntu|Server2|
 |192.168.0.110|Ubuntu|virtual-ip|
 
 _**Pre-steps**_
