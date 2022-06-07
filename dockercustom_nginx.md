@@ -14,7 +14,7 @@ We build a custom image for nginx without SSL configuration in this section.
 
 ```bash
 sudo mkdir -p nginx 
-sudo vim Dockerfile
+sudo vim /nginxDockerfile
 ```
 Basic configuration is presented below; if you wish to adjust any custom levels, do so according to your needs.
 
