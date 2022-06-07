@@ -46,3 +46,47 @@ server {
         }
 }
 ```
+
+
+
+```bahs
+# /etc/nginx/sites-available/fourtimes.ml.conf
+upstream backend{
+        server 192.168.0.116;
+        server 192.168.0.118;
+}
+
+
+server {
+        listen 80;
+        server_name fourtimes.ml;
+        
+	access_log           /var/log/nginx/fourtimes.ml.access.log;
+        error_log            /var/log/nginx/fourtimes.ml.error.log;
+	return 301 https://$host$request_uri;
+        
+	location / {
+           proxy_pass http://backend;
+        }
+}
+
+
+server {
+    listen                443 ssl;
+    server_name fourtimes.ml;
+
+    access_log           /var/log/nginx/fourtimes.ml.access.log;
+    error_log            /var/log/nginx/fourtimes.ml.error.log;
+
+    location / {
+	    proxy_pass http://backend;
+    }
+
+    ssl                  on;
+    ssl_certificate      /etc/nginx/ssl-certificate/certificate.crt;
+    ssl_certificate_key  /etc/nginx/ssl-certificate/private.key;
+
+    }
+
+
+```
