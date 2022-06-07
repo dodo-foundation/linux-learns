@@ -23,7 +23,7 @@ connect the `each machine` and execute the host entry
 ```bash
 echo "192.168.0.105 Server1" | sudo tee -a /etc/hosts
 echo "192.168.0.102 Server2" | sudo tee -a /etc/hosts
-echo "loalhos:8081  Virtual ip" | sudo tee -a /etc/hosts
+echo "loalhost:8081  Virtual ip" | sudo tee -a /etc/hosts
 ```
 
 **Nginx Container Creation**
@@ -61,8 +61,17 @@ haproxy -v
 
 **Configuraton**
 
-Configuring Load balancer on `Server 1`, In this secton conf file located in `/etc/haproxy/haproxy.cfg`
+_**Configuring Load balancer on `Server 1**_
 
+* In this secton conf file located in `/etc/haproxy/haproxy.cfg`
+
+_backup_
+
+```bash 
+
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bk
+
+```
 
 ```bash
 # sudo vi /etc/haproxy/haproxy.cfg
@@ -132,8 +141,15 @@ curl -i 192.168.0.110:6443
 to shown your `index.html` file is automatically changed
 
 
-_**Configuring HA Proxy on Server2**_
+_**Configuring Load BAlancer on Server2**_
 
+_Backup Orginal File_
+
+```bash 
+
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bk
+
+```
 
 ```bash
 # sudo vim /etc/haproxy/haproxy.cfg
