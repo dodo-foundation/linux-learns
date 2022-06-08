@@ -36,7 +36,7 @@ docker run -d -p 8082:80 --name Nginx2 imageid
 ```bash
 upstream backend{
         server localhost:8081;
-        server localhost:8082;**_configuration_**
+        server localhost:8082;
 }
 server {
         listen 80;
@@ -54,8 +54,8 @@ In this task we are take config loadbalancer with SSL certificate
 ```bash
 # /etc/nginx/sites-available/fourtimes.ml.conf
 upstream backend{
-        server 192.168.0.116;
-        server 192.168.0.118;
+        server localhost:8081;
+        server localhost:8082;
 }
 
 
@@ -63,8 +63,8 @@ server {
         listen 80;
         server_name fourtimes.ml;
         
-	access_log           /var/log/nginx/fourtimes.ml.access.log;
-        error_log            /var/log/nginx/fourtimes.ml.error.log;
+	#access_log           /var/log/nginx/access.log;
+        #error_log            /var/log/nginx/error.log;
 	return 301 https://$host$request_uri;
         
 	location / {
@@ -77,8 +77,8 @@ server {
     listen                443 ssl;
     server_name fourtimes.ml;
 
-    access_log           /var/log/nginx/fourtimes.ml.access.log;
-    error_log            /var/log/nginx/fourtimes.ml.error.log;
+    access_log           /var/log/nginx/access.log;
+    error_log            /var/log/nginx/error.log;
 
     location / {
 	    proxy_pass http://backend;
@@ -92,3 +92,14 @@ server {
 
 
 ```
+
+_**output**_
+
+```bash
+
+curl localost:8081
+curl localhost:8082
+
+```
+
+ * Note --> Try your web browser `yourip:8081`
