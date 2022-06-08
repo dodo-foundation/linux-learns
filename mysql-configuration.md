@@ -72,6 +72,12 @@ FLUSH PRIVILEGES;
 ```
 _Revoke Permmission_
 
+Restting the root password
+
+```bash
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+```
+
 ```bash
 
 REVOKE ALL PRIVILEGES ON *.* FROM 'developer'@'localhost';
