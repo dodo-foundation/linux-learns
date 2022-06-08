@@ -93,6 +93,18 @@ server {
 
 
 ```
+_check Ur Config_
+
+`nginx -t`
+
+
+_**Enable your load_balance.conf file**_
+
+```bash
+
+ln -s /etc/nginx/sites-available/load_balance.conf /etc/nginx/sites-enabled/
+
+```
 
 _**output**_
 
