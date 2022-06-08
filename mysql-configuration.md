@@ -165,7 +165,7 @@ CREATE TABLE users (
  
 ```sql
 
-describe users:`
+describe (table-name):`
 
 ```
 _Insert values to the tables_
@@ -193,7 +193,7 @@ insert into destination_table select * from source_table where city='New York';
 
 ```
 
-* To view the value you insert the table ---> `select * from table name;`
+* To view the value you insert the table ---> `select * from (table-name);`
 *To delete the table row ---> 'DELETE FROM Table_Name WHERE Address='pmk';'
 
 
