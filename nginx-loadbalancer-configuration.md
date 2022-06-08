@@ -49,7 +49,7 @@ server {
 
 **_configuration with SSL_**
 
-In this task we are take config loadbalancer with SSL certificate 
+We will configure a load balancer with an SSL certificate in this task.
 
 
 ```bash
