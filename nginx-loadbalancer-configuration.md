@@ -23,7 +23,7 @@ _create Nginx DockerFile_
 https://github.com/dodo-foundation/linux-learns/blob/main/dockercustom_nginx.md
 
 
-Once you've created the Nginx image, execute it to create two containers with different ports, as seen below.
+Once you've created the Nginx image, Run it to create two containers with different ports, as seen below.
 
 ```bash
 
@@ -33,11 +33,10 @@ docker run -d -p 8082:80 --name Nginx2 imageid
 ```
 
 
-
 ```bash
 upstream backend{
         server localhost:8081;
-        server localhost:8082;
+        server localhost:8082;**_configuration_**
 }
 server {
         listen 80;
@@ -47,9 +46,12 @@ server {
 }
 ```
 
+**_configuration with SSL_**
+
+In this task we are take config loadbalancer with SSL certificate 
 
 
-```bahs
+```bash
 # /etc/nginx/sites-available/fourtimes.ml.conf
 upstream backend{
         server 192.168.0.116;
