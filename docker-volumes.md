@@ -29,7 +29,7 @@ docker volume inspect (volume name)
 
 _**Default Destination Path**_
 
- * mysql 
+ * mysql --> /var/lib/mysql
  * nginx --> /usr/share/nginx/html
 # Start a container with a volume:-
 **Syntax for --mount:**
