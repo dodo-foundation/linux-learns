@@ -34,6 +34,7 @@ docker run -d -p 8082:80 --name Nginx2 imageid
 
 
 ```bash
+# /etc/nginx/sites-available/fourtimes.ml.conf
 upstream backend{
         server localhost:8081;
         server localhost:8082;
