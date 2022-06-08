@@ -67,7 +67,6 @@ _Grant ALL privileges to user_
 ```bash
 
 GRANT ALL PRIVILEGES ON *.* TO 'developer'@'localhost' WITH GRANT OPTION;
-
 FLUSH PRIVILEGES;
 
 ```
