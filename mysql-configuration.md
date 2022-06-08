@@ -173,6 +173,8 @@ _Insert values to the tables_
 ```sql
 
 INSERT INTO users (name,MemberName,MemeberAge) VALUES (3, 'deva1', 2);
+or 
+INSERT INTO users VALUE('Boys', 'double room', 44665466);
 
 ```
 _Copy the row from One table to Another table_
