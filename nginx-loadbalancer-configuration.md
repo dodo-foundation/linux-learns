@@ -34,7 +34,7 @@ docker run -d -p 8082:80 --name Nginx2 imageid
 
 
 ```bash
-# /etc/nginx/sites-available/fourtimes.ml.conf
+# /etc/nginx/sites-available/loadbalancer.conf
 upstream backend{
         server localhost:8081;
         server localhost:8082;
@@ -53,7 +53,7 @@ We will configure a load balancer with an SSL certificate in this task.
 
 
 ```bash
-# /etc/nginx/sites-available/fourtimes.ml.conf
+# /etc/nginx/sites-available/loadbalancer.conf
 upstream backend{
         server localhost:8081;
         server localhost:8082;
@@ -62,7 +62,9 @@ upstream backend{
 
 server {
         listen 80;
-        server_name fourtimes.ml;
+        server localhost:8081;
+        server localhost:8082;
+}
         
 	#access_log           /var/log/nginx/access.log;
         #error_log            /var/log/nginx/error.log;
@@ -76,10 +78,12 @@ server {
 
 server {
     listen                443 ssl;
-    server_name fourtimes.ml;
+    server localhost:8081;
+    server localhost:8082;
+}
 
-    access_log           /var/log/nginx/access.log;
-    error_log            /var/log/nginx/error.log;
+    #access_log           /var/log/nginx/access.log;
+    #error_log            /var/log/nginx/error.log;
 
     location / {
 	    proxy_pass http://backend;
