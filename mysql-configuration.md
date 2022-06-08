@@ -70,13 +70,14 @@ GRANT ALL PRIVILEGES ON *.* TO 'developer'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 ```
-_Revoke Permmission_
 
 Restting the root password
 
 ```bash
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
 ```
+
+_Revoke Permmission_
 
 ```bash
 
