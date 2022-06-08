@@ -99,7 +99,7 @@ _list out the all mysql users_
 
 ```sql
 
-SELECT user FROM mysql.user
+SELECT user FROM mysql.user;
 
 ```
 
