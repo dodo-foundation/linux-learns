@@ -53,30 +53,38 @@ sudo vim /etc/apache2/sites-available/load_balance.conf
 _sample load balance file_
 
 ```bash
+
 <VirtualHost *:80>
+
 <Proxy balancer://mycluster>
     BalancerMember http://localhost:8081
     BalancerMember http://localhost:8082
 </Proxy>
-
     ProxyPreserveHost On
-
     ProxyPass / balancer://mycluster/
     ProxyPassReverse / balancer://mycluster/
 </VirtualHost>
+
 ```
-### Enable your load_balance.conf file ###
+_**Enable your load_balance.conf file**_
+
 ```bash
-a2ensite load_balance.conf
-    OR
+
+sudo a2ensite load_balance.conf
+
+OR
+
 ln -s /etc/apache2/sites-available/load_balance.conf /etc/apache2/sites-enabled/
+
 ```
 
 _Check ur config_
 
 ```bash
-apache2ctl -t
+
+sudo apache2ctl -t
 sudo systemctl restart apache2.service
+
 ```
 ---
 
@@ -93,3 +101,95 @@ curl localhost
 ```
 or check ur web browser to `localhost`
 
+_**LoadBalance With SSL**_
+
+We will configure a load balancer with an SSL certificate in this task.
+
+Enable SSL and Rewrite Mode 
+
+```bash
+
+# enable SSL
+sudo a2enmod ssl
+sudo a2enmod rewrite
+
+```
+
+```bash
+<VirtualHost *:80>
+
+        ServerName http://127.0.0.1:8081
+        ServerName http://127.0.0.1:8082
+
+        # Redirect permanent / https://dodo-found.tk/
+        RewriteEngine On
+        RewriteCond %{HTTPS} off
+        RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+   <Proxy balancer://mycluster>
+      BalancerMember http://127.0.0.1:8081
+      BalancerMember http://127.0.0.1:8082
+    </Proxy>
+    ProxyPreserveHost On
+    ProxyPass / balancer://mycluster/
+    ProxyPassReverse / balancer://mycluster/
+
+</VirtualHost>
+<VirtualHost *:443>
+
+        ServerName http://127.0.0.1:8081
+        ServerName http://127.0.0.1:8082
+
+
+        SSLEngine                on
+        SSLCertificateFile       /etc/apache2/ssl-dodo/certificate.crt
+        SSLCertificateKeyFile    /etc/apache2/ssl-dodo/private.key
+        SSLCertificateChainFile  /etc/apache2/ssl-dodo/ca_bundle.crt
+
+   <Proxy balancer://mycluster>
+      BalancerMember http://127.0.0.1:8081
+      BalancerMember http://127.0.0.1:8082
+    </Proxy>
+    ProxyPreserveHost On
+    ProxyPass / balancer://mycluster/
+    ProxyPassReverse / balancer://mycluster/
+
+</VirtualHost>
+```
+
+_**Enable your load_balance.conf file**_
+
+```bash
+
+sudo a2ensite load_balance.conf
+
+OR
+
+ln -s /etc/apache2/sites-available/load_balance.conf /etc/apache2/sites-enabled/
+
+```
+
+_Check ur config_
+
+```bash
+
+sudo apache2ctl -t
+sudo systemctl restart apache2.service
+
+```
+---
+
+**Output**
+
+```bash
+
+curl localhost
+
+#Output
+# Its works container1
+# Its works container2
+
+```
+or check ur web browser to `localhost`
+
+                                                                                          
