@@ -11,18 +11,18 @@ _**process flow**_
 
 |SERVER| IPADDRESS|OS|
 |---|---|---|
-|Server-1| 192.168.0.105| ubuntu |
-|Server -2| 192.168.0.109| ubuntu |
-|Floating Ip| 192.168.0.110| ubuntu|
+|web-Server-1| 192.168.0.111| ubuntu |
+|web-Server-2| 192.168.0.100| ubuntu |
+|Haproxy machine| 192.168.0.101| ubuntu|
 
 _**Pre-steps**_
 
 connect the `each machine` and execute the host entry
 
 ```bash
-echo "192.168.0.105 Server1" | sudo tee -a /etc/hosts
-echo "192.168.0.109 Server2" | sudo tee -a /etc/hosts
-echo "loalhost:8081  Virtual ip" | sudo tee -a /etc/hosts
+echo "192.168.0.111 Server1" | sudo tee -a /etc/hosts
+echo "192.168.0.100 Server2" | sudo tee -a /etc/hosts
+echo "192.168.0.101" | sudo tee -a /etc/hosts
 ```
 
 **Nginx Container Creation**
@@ -109,17 +109,19 @@ defaults
 	errorfile 502 /etc/haproxy/errors/502.http
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
+	
 
+frontend web-frontend
+   bind 192.168.0.101:80
+   mode http
+   default_backend web-backend
 
-frontend http_front
-   bind *:6443
-   stats uri /haproxy?stats
-   default_backend http_back
-
-backend http_back
+backend web-backend
    balance roundrobin
-   server s1 192.168.0.105:8081 check
-   server s2 192.168.0.109:8081 check
+   server web-server1 192.168.0.100:80 check
+   server web-server2 192.168.0.111:80 check
+
+
 ```
 
 _Check Configuration_
@@ -133,92 +135,22 @@ haproxy -c -V -f /etc/haproxy/haproxy.cfg
 After running the command, the message 'Configuration file is valid' appears. 
 
 ```bash 
-curl -i localhost:6443
-curl -i 192.168.0.110:6443
+curl  localhost:80
 ```
 
-to shown your `index.html` file is automatically changed
+_web-Server-1
+
+Please run the apache2. Add the content to index.html file
+
+_Web-server-2
+
+Please run the apache2. Add the content to index.html file
+
+# output
+**Its works web-server-1**
+**Its works web-server-2**
 
 
-_**Configuring Load BAlancer on Server2**_
 
-_Backup Orginal File_
-
-```bash 
-
-sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bk
-
-```
-
-```bash
-# sudo vim /etc/haproxy/haproxy.cfg
-
-global
-	log /dev/log	local0
-	log /dev/log	local1 notice
-	chroot /var/lib/haproxy
-	stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
-	stats timeout 30s
-	user haproxy
-	group haproxy
-	daemon
-
-	# Default SSL material locations
-	ca-base /etc/ssl/certs
-	crt-base /etc/ssl/private
-
-	# See: https://ssl-config.mozilla.org/#server=haproxy&server-version=2.0.3&config=intermediate
-        ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
-        ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
-        ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
-
-defaults
-	log	global
-	mode	http
-	option	httplog
-	option	dontlognull
-        timeout connect 5000
-        timeout client  50000
-        timeout server  50000
-	errorfile 400 /etc/haproxy/errors/400.http
-	errorfile 403 /etc/haproxy/errors/403.http
-	errorfile 408 /etc/haproxy/errors/408.http
-	errorfile 500 /etc/haproxy/errors/500.http
-	errorfile 502 /etc/haproxy/errors/502.http
-	errorfile 503 /etc/haproxy/errors/503.http
-	errorfile 504 /etc/haproxy/errors/504.http
-
-
-frontend http_front
-   bind *:6443
-   stats uri /haproxy?stats
-   default_backend http_back
-
-backend http_back
-   balance roundrobin
-   server s1 192.168.0.105:8081 check
-   server s2 192.168.0.109:8081 check
-```
-
-_Check Configuration_
-
-```bash
-
-haproxy -c -V -f /etc/haproxy/haproxy.cfg
-
-```
-
-After running the command, the message appears 'Configuration file is valid'. 
-
-```bash 
-curl localhost:6443
-curl 192.168.0.110:6443
-
-#output
-#Its works Container1
-#Its works Container2
-```
-
-* In this case we check floating ip using with keepalived Conf
 * Output Content from two different servers will appear alternately.
 
