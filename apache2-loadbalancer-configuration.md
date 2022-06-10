@@ -36,7 +36,14 @@ Check the status of your container's operation.
 
 ---
 
-### Apache Configuration file 
+### Apache Configuration file
+
+```bash
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
+```
 
 ```bash
 
@@ -77,8 +84,12 @@ sudo systemctl restart apache2.service
 
 ```bash
 
-curl localhost:8081
+curl localhost
+
+#Output
+# Its works container1
+# Its works container2
 
 ```
-or check ur web browser to `localhost:8081`
+or check ur web browser to `localhost`
 
