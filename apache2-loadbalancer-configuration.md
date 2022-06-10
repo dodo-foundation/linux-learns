@@ -102,7 +102,7 @@ or check ur web browser to `localhost`
 
 ---
 
-_**LoadBalance With SSL**_
+_**LoadBalancer With SSL**_
 
 We will configure a load balancer with an SSL certificate in this task.
 
