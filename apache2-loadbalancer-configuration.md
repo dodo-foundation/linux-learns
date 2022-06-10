@@ -86,7 +86,6 @@ sudo apache2ctl -t
 sudo systemctl restart apache2.service
 
 ```
----
 
 **Output**
 
@@ -100,6 +99,8 @@ curl localhost
 
 ```
 or check ur web browser to `localhost`
+
+---
 
 _**LoadBalance With SSL**_
 
@@ -116,6 +117,8 @@ sudo a2enmod rewrite
 ```
 
 ```bash
+
+#sudo vim /etc/apache2/sites-available/load_balance.conf 
 <VirtualHost *:80>
 
         ServerName http://127.0.0.1:8081
