@@ -21,7 +21,7 @@ connect the `each machine` and execute the host entry
 
 ```bash
 echo "192.168.0.105 Server1" | sudo tee -a /etc/hosts
-echo "192.168.0.102 Server2" | sudo tee -a /etc/hosts
+echo "192.168.0.109 Server2" | sudo tee -a /etc/hosts
 echo "loalhost:8081  Virtual ip" | sudo tee -a /etc/hosts
 ```
 
@@ -41,7 +41,7 @@ https://github.com/dodo-foundation/linux-learns/blob/b487d9a173e228b012b477328d9
 
 ---
 
-**HA_proxy installtion**
+**HA-proxy installtion**
 
 ```bash
 
