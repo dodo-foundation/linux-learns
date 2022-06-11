@@ -174,7 +174,15 @@ CREATE TABLE users (
 );
 
 ```
- _view the table structure_
+_Remove the Table Data_
+
+```sql
+
+TRUNCATE TABLE tablename;
+
+```
+
+_view the table structure_
  
 ```sql
 
@@ -358,3 +366,5 @@ to check the restore database table record
 select count(*) from data_2;
 
 ```
+
+_**Restore  compressed method**_
