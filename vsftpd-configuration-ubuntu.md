@@ -16,7 +16,7 @@ passwd user-a
 sudo adduser user-b
 passwd user-b
 ```
-
+* Note If create user with ADDUSER method, other user to lo 
 _user document root create_
 
 |users| document root|
