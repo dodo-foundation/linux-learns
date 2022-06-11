@@ -71,10 +71,21 @@ FLUSH PRIVILEGES;
 
 ```
 
+_Assign selected privileges to user_
+
+```bash
+
+GRANT (Permission) ON *.* TO 'developer'@'localhost';
+flush privileges;
+
+```
+
 Restting the root password
 
 ```bash
+
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+
 ```
 
 _Revoke Permmission_
@@ -116,15 +127,16 @@ _Query statements_
 
 Create a database on the Root User account and grant specific permissions to this account's users.
 
-```bash
+```sql
 
 create database apps;
 show databases;
 
 ```
+
 _In the database, set user permissions_
 
-```bash
+```sql
 
 GRANT all ON apps.* TO 'developer'@'localhost';
 flush privileges;
@@ -133,7 +145,8 @@ flush privileges;
 
 _connected to particular database_
 
-```bash
+
+```sql
 
 use apps;
 #  To view the current database name
@@ -177,7 +190,9 @@ or
 INSERT INTO users VALUE('Boys', 'double room', 44665466);
 
 ```
+
 _Copy the row from One table to Another table_
+
 
 first create the same table with column of Source table
 
@@ -189,25 +204,25 @@ INSERT INTO destination_table select * from source_table;
 
 To copy the specific row to use this command
 
-```bash
+```sql
 
 insert into destination_table select * from source_table where city='New York';
 
 ```
 
 * To view the value you insert the table ---> `select * from (table-name);`
-*To delete the table row ---> 'DELETE FROM Table_Name WHERE Address='pmk';'
+* To delete the table row ---> 'DELETE FROM Table_Name WHERE Address='pmk';'
 
 
 _Add Column to the tables_
 
-```bash
+```sql
 
 ALTER TABLE vendors
 ADD COLUMN phone VARCHAR(15) AFTER name;
 ```
 
-```bash
+```sql
 
 ALTER TABLE vendors
 ADD COLUMN phone VARCHAR(15) FIRST;
@@ -217,11 +232,11 @@ ADD COLUMN phone VARCHAR(15) FIRST;
 to refer for more ---> https://dev.mysql.com/doc/refman/8.0/en/alter-table.html
 
 * To view the value you insert the table ---> `select * from table name;`
-*To delete the table column ---> 'ALTER TABLE table_name DROP COLUMN exisiting_column_name;'
+* To delete the table column ---> 'ALTER TABLE table_name DROP COLUMN exisiting_column_name;'
 
  _To update the Table_
  
-```bash
+```sql
 
 UPDATE employees SET email = 'mary.patterson@classicmodelcars.com' WHERE employeeNumber = 1056;
  
@@ -230,40 +245,53 @@ UPDATE employees SET email = 'mary.patterson@classicmodelcars.com' WHERE employe
 
 _Backup single database to Mysql_
  
- ```bash
- mysqldump -u root -p user1data > /home/deva/Mysql_bak/user1data_bak.sql
- ```
+ ```sql
+ 
+ 
+mysqldump -u root -p user1data > /home/deva/Mysql_bak/user1data_bak.sql
+
+```
 
 then create multiple databases backup in single comment
 
-```bash
- mysqldump -u root -p --databases user1data user2data user3data > /home/deva/Mysql_bak/alldatabase_bak.sql
- ```
+```sql
+
+mysqldump -u root -p --databases user1data user2data user3data > /home/deva/Mysql_bak/alldatabase_bak.sql
+
+```
 
 and Next create back in single Table
 
-```bash
+```sql
+
 mysqldump -u root -p user1data A >/home/deva/Table_bak/single_bak.sql
+
 ```
 
 and next Multiple table in single  command
 
-```bash
+```sql
+
 mysqldump -u root -p user1data A B C >/home/deva/Table_bak/all_bak.sql
+
 ```
 
-##Restore
+_**Restore**_
 
 in this section how to restore the bacup tables in single file
 
-```bash
+```sql
+
 mysql -u root -p user3data < /home/deva/Table_bak/a3_bak.sql
+
 ```
 
 Multiple table restore
 
-```bash
+```sql
+
 mysql -u root -p user3data < /home/deva/Table_bak/all3_bak.sql
+
 ```
 
 in this section restore single data base in mysql
@@ -273,44 +301,60 @@ in restore process first you remove privious databases using drop commant
 create new empty database 
 
 ```bash
+
 mysql -u root -p user1data < /home/deva/Mysql_bak/user1data_bak.sql
+
 ```
 
 in this section restore single data base in mysql
+
 **in this commant use is base terminal not mysql**
 
 ```bash
+
 mysql -u root -p uset1 < /home/deva/Mysql_bak/alldatabase_bak.sql
+
 ```
 
 restore single and mutiple restore process cmd is same.
 
 to check the restore database table record
-```bash
+
+```sql
+
 select count(*) from data_2;
+
 ```
 ---
 
-## MySql backup database file transfer one server to another server
+**MySql backup database file transfer one server to another server**
 
 first enter the mysql console
 backup ur need database using this command
 
 ```bash
+
  mysqldump -u root -p database name > file path/user1data_bak.sql
- ```
+
+```
 and tranfer ur file to another server using this command
 
 ```bash
+
 scp source_file_name username@destination_host:destination_folder
+
 ```
 once file transfered then next restore using this command **using command in base terminal not mysql console**
 
 ```bash
+
 mysql -u root -p databasename < filepath/backup.sql;
+
 ```
 
 to check the restore database table record
 ```bash
+
 select count(*) from data_2;
+
 ```
