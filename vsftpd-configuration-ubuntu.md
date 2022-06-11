@@ -11,10 +11,10 @@ _ftp user creation_
 
 ```bash
 
-useradd -m -s /bin/false user-a
-sudo passwd user-a
-useradd -m -s /bin/false user-b
-sudo passwd user-b
+sudo adduser user-a
+passwd user-a
+sudo adduser user-b
+passwd user-b
 ```
 
 _user document root create_
