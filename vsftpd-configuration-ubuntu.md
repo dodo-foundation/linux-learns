@@ -92,8 +92,7 @@ _restrict the users at root level_
 echo "user-a" | tee  /etc/vsftpd.chroot_list
 echo "user-b" | tee -a /etc/vsftpd.chroot_list
 ```
-
-
+ 
 _restart the service_
 
 ```bash
@@ -102,7 +101,18 @@ systemctl restart vsftpd
 systemctl status vsftpd
 
 ```
- If the /home directory does not appear, check your user shell type, delete your user, then create a new user with the adduser command.
+
+_Verify the configuration_
+
+```bash
+
+sudo ss -tulpn | grep 21
+
+```
+
+ * Note If the port is Listen, your configuration is correct.
+
+If the /home directory does not appear, check your user shell type, delete your user, then create a new user with the adduser command.
  
  ---
  
@@ -113,8 +123,10 @@ systemctl status vsftpd
  generate a private key,
  
  ```bash
- sudo openssl genrsa -out /etc/ssl/private/vsftpd.key
- ```
+
+sudo openssl genrsa -out /etc/ssl/private/vsftpd.key
+
+```
  
  generate a certificate signing request
  
@@ -168,7 +180,6 @@ chroot_list_file=/etc/vsftpd.chroot_list
 
 ```
 
-
 _restart the service_
 
 ```bash
@@ -177,3 +188,15 @@ systemctl restart vsftpd
 systemctl status vsftpd
 
 ```
+
+
+_Verify the configuration_
+
+```bash
+
+sudo ss -tulpn | grep 21
+
+```
+
+ * Note If the port is Listen, your configuration is correct.
+
