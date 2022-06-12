@@ -22,8 +22,8 @@ _uninstall_
 
 ```bash
 
-sudo apt-get --purge remove postgresql
-sudo apt autoremove
+sudo apt-get --purge remove postgresql -y
+sudo apt autoremove -y
 
 ```
 * using this command  `dpkg -l |grep postgres`  remove another postgres files
