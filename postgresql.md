@@ -12,6 +12,16 @@
 
 If you not installed the postgreSQL, use this command,
 
+---
+
+452
+
+ALTER DATABASE name OWNER TO new_owner;
+
+
+
+---
+
 ```bash
 sudo apt update
 sudo apt install postgresql postgresql-contrib
