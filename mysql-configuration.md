@@ -57,13 +57,15 @@ First Edit Mysql config file
 ```
 #sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 
-bind-address        = 0.0.0.0
+bind-address        = 0.0.0.0 or your ip
 
 ```
 Restart the service
 
 ```
-sudo systemctl restart mysql
+sudo systemctl stop mysql
+sudo systemctl start mysql
+
 ```
 
 _Remote user Creation_
@@ -80,9 +82,11 @@ _User Login Command_
 
 ```bash
 
-mysql -u user -h database_server_ip -p
+mysql -u username -h database_server_ip -p
 
 ```
+
+---
 
 _create the user_
 
