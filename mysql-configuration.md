@@ -50,6 +50,40 @@ mysql -u root -p
 
 ```
 
+**_User Create with Remote Access_**
+
+First Edit Mysql config file
+
+```
+#sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+bind-address        = 0.0.0.0
+
+```
+Restart the service
+
+```
+sudo systemctl restart mysql
+```
+
+_Remote user Creation_
+
+```bash
+
+CREATE USER 'username'@'remote_server_ip' IDENTIFIED BY 'password';
+
+```
+
+* Note If you don't know the User IP address, replace this symbol for it in the ip address **%**
+
+_User Login Command_
+
+```bash
+
+mysql -u user -h database_server_ip -p
+
+```
+
 _create the user_
 
 |username|password|server address| database |
