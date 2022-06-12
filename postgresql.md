@@ -18,7 +18,9 @@ If you not installed the postgreSQL, use this command,
 
 ALTER DATABASE name OWNER TO new_owner;
 
+revoke all on database common from usera;
 
+To view the user privileges \du+
 
 ---
 
