@@ -14,13 +14,43 @@ If you not installed the postgreSQL, use this command,
 
 ---
 
-452
+database owner change
 
 ALTER DATABASE name OWNER TO new_owner;
+
+revoke database permissoion
 
 revoke all on database common from usera;
 
 To view the user privileges \du+
+
+schema list
+SELECT schema_name
+FROM information_schema.schemata;
+
+user permission
+
+first connect with database
+
+GRANT CONNECT ON DATABASE database_name TO username;
+
+second
+
+rgrant permission in schema
+
+GRANT USAGE ON SCHEMA schema_name TO username;
+
+specific permission given to user
+GRANT SELECT ON table_name TO username;
+
+or
+
+GRANT SELECT ON ALL TABLES IN SCHEMA schema_name TO username;
+
+
+
+
+
 
 ---
 
