@@ -43,10 +43,10 @@ _Disable the peer connectivity and enable the md5 authentication_
 file location `/etc/postgresql/14/main/pg_hba.conf`
 
 ```bash
-# cmment the two lnes
+# comment those two lnes
 local   all             postgres                                peer
 local   all             all                                     peer
-# add the lines
+# add those two lines
 local   all             postgres                                md5
 local   all             all                                     md5
 ```
