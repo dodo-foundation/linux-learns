@@ -31,3 +31,28 @@ _How do I login and authenticate to Postgresql after a fresh install?_
 ```bash
 sudo -u postgres psql postgres
 ```
+
+default user password assign
+
+```bash
+ALTER USER postgres PASSWORD '.';
+```
+
+_Disable the peer connectivity and enable the md5 authentication_
+
+```bash
+# cmment the two lnes
+local   all             postgres                                peer
+local   all             all                                     peer
+# add the lines
+local   all             postgres                                md5
+local   all             all                                     md5
+```
+_service reload_
+
+```bash
+sudo systemctl stop postgresql
+sudo systemctl start postgresql
+sudo systemctl status postgresql
+```
+
