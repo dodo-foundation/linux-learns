@@ -40,6 +40,8 @@ ALTER USER postgres PASSWORD '.';
 
 _Disable the peer connectivity and enable the md5 authentication_
 
+file location `/etc/postgresql/14/main/pg_hba.conf`
+
 ```bash
 # cmment the two lnes
 local   all             postgres                                peer
