@@ -30,7 +30,7 @@ scp remote ip:/home/remote_dir/sample_example.txt home/Desktop
 scp home/Desktop/sample_example.txt remote ip:/home/remote_dir/
 
 ```
-In this case ill transfer a **backup** folder in localhost to server
+In this scenario, I'll move a localhost **backup** folder to the server side.
 
 ```bash
 
