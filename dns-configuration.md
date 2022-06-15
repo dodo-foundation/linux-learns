@@ -7,10 +7,3 @@ The Domain Name System (DNS) turns domain names into IP addresses, which browser
 
 
 
-
-sync -anq -o StrictHostKeyChecking=no /backup/*.txt kendanick@192.168.0.104:/backup/
-
-
-
-Member of development phase and dodos
-rsync -azvhr --delete-excluded backup/ kendanick@192.168.0.104:/backup
