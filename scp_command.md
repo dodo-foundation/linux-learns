@@ -14,8 +14,36 @@ _**Use SCP when:**_
 
 _Copy a File from a Remote Server to the Local Host_
 
+Pull Method --> file sent to remote server to localhost 
+
 ```bash 
+
 scp remote ip:/home/remote_dir/sample_example.txt home/Desktop
+
 ```
 
+Push Method --> file receive from localhost to remote server
 
+```bash
+
+scp home/Desktop/sample_example.txt remote ip:/home/remote_dir/
+
+```
+
+_Copy a File from One Remote Server to Another_
+
+Pull Method --> file sent to root server to user
+
+```bash
+
+scp root@remoteip:/home/remote_dir/sample_example.txt username@userip:home/Desktop
+
+```
+
+Push Method --> file sent to root server to user
+
+```bash
+
+scp username@userip:home/Desktop/sample_example.txt root@remoteip:/home/remote_dir/
+
+```
