@@ -2,14 +2,21 @@ ip tables rules
 
 
 # Modify this file accordingly for your specific requirement.
-# http://www.thegeekstuff.com
-# 1. Delete all existing rules
-iptables -F
 
-# 2. Set default chain policies
+**1. Delete all existing rules**
+
+
+```bash
+iptables -F
+```
+
+**2. Set default chain policies**
+
+```bash
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -P OUTPUT DROP
+```
 
 # 3. Block a specific ip-address
 #BLOCK_THIS_IP="x.x.x.x"
