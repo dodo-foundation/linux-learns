@@ -6,7 +6,7 @@ SCP protects your data while copying across an SSH (Secure Shell) connection by 
 Therefore, even if the traffic is intercepted, the information is still encrypted.
 
 
-_**Use SCP when:**_
+_**SCP Uses:**_
 
 
  * Copying files from a local host to a remote host.
