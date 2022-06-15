@@ -45,9 +45,9 @@ for More scp command option given to below
 
 _**Copy a File from One Remote Server to Another**_
 
+
 Push Method - File is transmitted from user to remote server 
  
-
 ```bash
 
 scp username@userip:home/Desktop/sample_example.txt  root@remoteip:/home/remote_dir/
@@ -63,8 +63,13 @@ scp root@remoteip:/home/remote_dir/sample_example.txt username@userip:home/Deskt
 
 ```
 
-If you Ignore Hostkey checking use **`-o StrictHostKeyChecking=no`**
+If you Ignore Hostkey checking use this option **`-o StrictHostKeyChecking=no`**
 
+```bash
+
+scp -o StrictHostKeyChecking=no root@remoteip:/home/remote_dir/sample_example.txt username@userip:home/Desktop/
+
+```
 
 _**SCP Command Options**_
 
