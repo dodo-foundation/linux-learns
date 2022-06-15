@@ -8,12 +8,13 @@ Therefore, even if the traffic is intercepted, the information is still encrypte
 
 _**Use SCP when:**_
 
+
  * Copying files from a local host to a remote host.
  * Copying files from a remote host to a local host.
  * Copying files between two remote servers.
 
 
-_Copy a File from a Remote Server to the Local Host_
+_**Copy a File from a Local Host to the Remote Server**_
 
 * Push Method - File is transmitted from localhost to remote server 
 
@@ -42,7 +43,7 @@ for More scp command option given to below
 
 ---
 
-_Copy a File from One Remote Server to Another_
+_**Copy a File from One Remote Server to Another**_
 
 Push Method - File is transmitted from user to remote server 
  
@@ -62,7 +63,8 @@ scp root@remoteip:/home/remote_dir/sample_example.txt username@userip:home/Deskt
 
 ```
 
-If you Ignore Hostkey checking use `-o StrictHostKeyChecking=no`
+If you Ignore Hostkey checking use **`-o StrictHostKeyChecking=no`**
+
 
 _**SCP Command Options**_
 
