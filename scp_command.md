@@ -1,8 +1,7 @@
 ## WHAT IS SCP
+---
 
-SCP (Secure Copy Protocol) is a network protocol used to securely copy files/folders between Linux (Unix) systems on a network. 
-
-SCP protects your data while copying across an SSH (Secure Shell) connection by encrypting the files and the passwords. 
+SCP (Secure Copy Protocol) is a network protocol used to securely copy files/folders between Linux (Unix) systems on a network.SCP protects your data while copying across an SSH (Secure Shell) connection by encrypting the files and the passwords. 
 Therefore, even if the traffic is intercepted, the information is still encrypted.
 
 
@@ -10,8 +9,11 @@ _**SCP Uses:**_
 
 
  * Copying files from a local host to a remote host.
+ 
  * Copying files from a remote host to a local host.
+ 
  * Copying files between two remote servers.
+
 
 _**Syntax**_
 
@@ -24,7 +26,7 @@ scp <option> source_file_name username@destination_host:destination_folder
 
 _**Copy a File from a Local Host to the Remote Server**_
 
-* Push Method - File is transmitted from **localhost to remote server** 
+* Push Method - File is transmitted from `localhost to remote server` 
 
 ```bash 
 
@@ -32,7 +34,7 @@ scp /home/source_dir/  username@ip:/home/Destination Dir
 
 ```
 
-* Pull Method - File is receive from **remote server to localhost**
+* Pull Method - File is receive from `remote server to localhost`
 
 ```bash
 
@@ -40,7 +42,7 @@ scp remote ip:/home/source_dir/  home/Destination_dir
 
 ```
 
-In this scenario, I'll copy the localhost **backup** folder to the server side.
+In this scenario, I'll copy the localhost `backup` folder to the server side.
 
 ```bash
 
