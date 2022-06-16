@@ -68,7 +68,22 @@ If you have a large number of user accounts on the systems, then it makes sense 
    **Output**
    ![Screenshot from 2022-04-28 19-09-23](https://user-images.githubusercontent.com/102893121/165765334-a8cba6af-3a11-4bd1-8583-c8f357630a6e.png)
 
- 
+
+_**SSH Login User Kill Process**_
+
+If Unknown login via ssh to your server frst find ssh connenction and PID then kill the process using below command
+
+```bash
+
+#find unkonwn ip 
+ss -tu
+
+#find PID Id
+sudo netstat -tnpa | grep 'ESTABLISHED.*sshd'
+sudo kill PID
+
+```
+
   
   ### SSHD config file Important Parameters
   
