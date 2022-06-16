@@ -34,7 +34,6 @@ _**SCP Command Options**_
 
 
 
-
 _**Copy a File from a Local Host to the Remote Server**_
 
 * Push Method - File is transmitted from `localhost to remote server` 
