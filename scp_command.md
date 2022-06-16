@@ -16,22 +16,23 @@ _**SCP Uses:**_
 
 _**Copy a File from a Local Host to the Remote Server**_
 
-* Push Method - File is transmitted from localhost to remote server 
+* Push Method - File is transmitted from **localhost to remote server** 
 
 ```bash 
 
-scp remote ip:/home/remote_dir/sample_example.txt home/Desktop
+scp /home/source_dir/  username@ip:/home/Destination Dir
 
 ```
 
-* Pull Method - File is receive from remote server to localhost
+* Pull Method - File is receive from **remote server to localhost**
 
 ```bash
 
-scp home/Desktop/sample_example.txt remote ip:/home/remote_dir/
+scp remote ip:/home/source_dir/  home/Destination_dir 
 
 ```
-In this scenario, I'll move a localhost **backup** folder to the server side.
+
+In this scenario, I'll copy the localhost **backup** folder to the server side.
 
 ```bash
 
@@ -50,16 +51,14 @@ Push Method - File is transmitted from user to remote server
  
 ```bash
 
-scp username@userip:home/Desktop/sample_example.txt  root@remoteip:/home/remote_dir/
+scp username@userip:home/Source_dir/sample_example.txt  root@remoteip:/home/Destination_dir/
 
 ```
-
 Pull Method - File is receive from remote server to user
  
-
 ```bash
 
-scp root@remoteip:/home/remote_dir/sample_example.txt username@userip:home/Desktop/
+scp root@remoteip:/home/source_dir/sample_example.txt username@userip:home/Destination_dir/
 
 ```
 
@@ -67,7 +66,7 @@ If you Ignore Hostkey checking use this option **`-o StrictHostKeyChecking=no`**
 
 ```bash
 
-scp -o StrictHostKeyChecking=no root@remoteip:/home/remote_dir/sample_example.txt username@userip:home/Desktop/
+scp -o StrictHostKeyChecking=no root@remoteip:/home/source_dir/sample_example.txt username@userip:home/Destination_dir/
 
 ```
 
