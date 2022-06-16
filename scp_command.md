@@ -23,6 +23,15 @@ scp <option> source_file_name username@destination_host:destination_folder
 
 ```
 
+_**SCP Command Options**_
+
+* -C	Enable compression.
+* -d	Copy the file, only if the destination directory already exists.
+* -h	Show a list of command options.
+* -r	Copy recursively.
+* -u	Delete the source file once the copy is complete.
+* -v	Enable verbose mode,
+
 
 _**Copy a File from a Local Host to the Remote Server**_
 
@@ -79,16 +88,6 @@ scp root@remoteip:/home/source_dir/sample_example.txt username@userip:home/Desti
 scp -o StrictHostKeyChecking=no root@remoteip:/home/source_dir/sample_example.txt username@userip:home/Destination_dir/
 
 ```
-
-_**SCP Command Options**_
-
-* -C	Enable compression.
-* -d	Copy the file, only if the destination directory already exists.
-* -h	Show a list of command options.
-* -r	Copy recursively.
-* -u	Delete the source file once the copy is complete.
-* -v	Enable verbose mode,
-* -o ssh_option	Set options to SSH in ssh_config format.
 
 
 
