@@ -24,6 +24,9 @@ sudo apt install apache2 -y
 
 Use this command to check the apache2 packages after they've been installed.
 
+```bash
+sudo apt list apache2 -a
+```
 **_service handling process_**
 
 This command can be used to start the service and check its status.
