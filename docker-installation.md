@@ -64,6 +64,8 @@ sudo systemctl enable docker
 
 ```bash
 sudo usermod -aG docker $USER
+
+#reboot the system
 ```
 
 docker document reference pls visit --> https://docs.docker.com/reference/
