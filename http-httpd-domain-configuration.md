@@ -25,14 +25,17 @@ cat private.key
 **5. To store the value in nginx**
 
 ```bash
+
 mkdir /etc/nginx/ssl-certificate
 sudo vim /etc/nginx/ssl-certificate/certificate.crt
 sudo vim /etc/nginx/ssl-certificate/private.key
+
 ```
 
 **6. configure the https,http domains and redirect conditions**
 
 ```bash
+
 vi /etc/nginx/sites-available/fourtimes.ml
 
 add this content:
@@ -62,6 +65,7 @@ server {
         index        index.html index.htm;
     }
 }
+
 ```
 
 **7. Create directory file**
